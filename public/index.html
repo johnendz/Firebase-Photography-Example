@@ -25,54 +25,6 @@
         }
     </style>
     <style type="text/css">
-        :root {
-        --input-padding-x: 1.5rem;
-        --input-padding-y: .75rem;
-        }
-
-
-        .card-signin {
-        border: 0;
-        border-radius: 1rem;
-        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        }
-
-        .card-signin .card-title {
-        margin-bottom: 2rem;
-        font-weight: 300;
-        font-size: 1.5rem;
-        }
-
-        .card-signin .card-body {
-        padding: 2rem;
-        background: scroll center url('https://source.unsplash.com/WEQbe2jBg40/414x512');
-        background-size: cover;
-        }
-
-        .form-signin {
-        width: 100%;
-        }
-
-        .form-signin .btn {
-        font-size: 80%;
-        border-radius: 5rem;
-        letter-spacing: .1rem;
-        font-weight: bold;
-        padding: 1rem;
-        transition: all 0.2s;
-        }
-
-        .form-label-group {
-        position: relative;
-        margin-bottom: 1rem;
-        }
-
-        .form-label-group input {
-        height: auto;
-        border-radius: 2rem;
-        }
-
         .btn-github {
         color: white;
         background-color: #444;
@@ -94,15 +46,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item" id="user-menu-off" style="display:none;">
-                    <a href="javascript:void(0);" class="btn btn-outline-dark" data-toggle="modal" data-target="#login">Iniciar sessão <i class="far fa-user" style="font-size: 15px;"></i></a>
+                    <button id="conect" class="btn btn-github"><i class="fab fa-github"></i> <btnlogin>Conectar com GitHub</btnlogin></button>
                 </li>
                 <li class="nav-item" id="user-menu-on" style="display:none;">
-                    <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="user-menu-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-                    <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="user-menu-dropdown">
-                      <a class="dropdown-item" href="#">Meu Dashboard</a>
-                      <a class="dropdown-item" href="#">Meu Perfil</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" onclick="firebase.auth().signOut().then(function() {});">Deslogar</a>
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="user-menu-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                        <div class="dropdown-menu" aria-labelledby="user-menu-dropdown">
+                            <a class="dropdown-item" href="javascript:void(0);">Enviar Fotógrafia</a>
+                            <a class="dropdown-item" href="javascript:void(0);">Meu Perfil</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" onclick="firebase.auth().signOut().then(function() {});">Deslogar</a>
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -118,21 +72,21 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <!-- Slide One - Set the background image for this slide in the line below -->
-            <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/RCAhiGJsUUE/1920x1080')">
+            <div class="carousel-item active" style="background-image: url('http://placehold.it/1920x1080')">
                 <div class="carousel-caption d-none d-md-block">
                     <h3 class="display-4">Foto</h3>
                     <p class="lead">Essa foi umas das fotos mais visualizadas.</p>
                 </div>
             </div>
             <!-- Slide Two - Set the background image for this slide in the line below -->
-            <div class="carousel-item" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1920x1080')">
+            <div class="carousel-item" style="background-image: url('http://placehold.it/1920x1080')">
                 <div class="carousel-caption d-none d-md-block">
                     <h3 class="display-4">Foto</h3>
                     <p class="lead">Essa foi umas das fotos mais visualizadas.</p>
                 </div>
             </div>
             <!-- Slide Three - Set the background image for this slide in the line below -->
-            <div class="carousel-item" style="background-image: url('https://source.unsplash.com/O7fzqFEfLlo/1920x1080')">
+            <div class="carousel-item" style="background-image: url('http://placehold.it/1920x1080')">
                 <div class="carousel-caption d-none d-md-block">
                     <h3 class="display-4">Foto</h3>
                     <p class="lead">Essa foi umas das fotos mais visualizadas.</p>
@@ -151,71 +105,122 @@
 </header>
 <div class="container">
 
-    <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Postagens recentes</h1>
+    <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Postagens recentes <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary">Ver mais →</a></div></h1>
   
     <hr class="mt-2 mb-5">
   
     <div class="row text-center text-lg-left">
   
         <div class="col-lg-3 col-md-4 col-6">
-            <a href="/photo/?user=9545954562251&id=564584545151548" class="d-block mb-4 ">
-                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/pWkk7iiCoDM/400x300" alt="">
+            <a href="javascript:void(0);" class="d-block mb-4 ">
+                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300">
             </a>
         </div>
         <div class="col-lg-3 col-md-4 col-6">
-            <a href="/photo/?user=9545954562251&id=564584545151548" class="d-block mb-4 ">
-                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/aob0ukAYfuI/400x300" alt="">
+            <a href="javascript:void(0);" class="d-block mb-4 ">
+                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300">
             </a>
         </div>
         <div class="col-lg-3 col-md-4 col-6">
-            <a href="/photo/?user=9545954562251&id=564584545151548" class="d-block mb-4 ">
-                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/EUfxH-pze7s/400x300" alt="">
+            <a href="javascript:void(0);" class="d-block mb-4 ">
+                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300">
             </a>
         </div>
         <div class="col-lg-3 col-md-4 col-6">
-            <a href="/photo/?user=9545954562251&id=564584545151548" class="d-block mb-4 ">
-                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/M185_qYH8vg/400x300" alt="">
+            <a href="javascript:void(0);" class="d-block mb-4 ">
+                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300">
             </a>
         </div>
         <div class="col-lg-3 col-md-4 col-6">
-            <a href="/photo/?user=9545954562251&id=564584545151548" class="d-block mb-4 ">
-                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/sesveuG_rNo/400x300" alt="">
+            <a href="javascript:void(0);" class="d-block mb-4 ">
+                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300">
             </a>
         </div>
         <div class="col-lg-3 col-md-4 col-6">
-            <a href="/photo/?user=9545954562251&id=564584545151548" class="d-block mb-4 ">
-                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/AvhMzHwiE_0/400x300" alt="">
+            <a href="javascript:void(0);" class="d-block mb-4 ">
+                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300">
             </a>
         </div>
         <div class="col-lg-3 col-md-4 col-6">
-            <a href="/photo/?user=9545954562251&id=564584545151548" class="d-block mb-4 ">
-                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/2gYsZUmockw/400x300" alt="">
+            <a href="javascript:void(0);" class="d-block mb-4 ">
+                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300">
             </a>
         </div>
         <div class="col-lg-3 col-md-4 col-6">
-            <a href="/photo/?user=9545954562251&id=564584545151548" class="d-block mb-4 ">
-                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/EMSDtjVHdQ8/400x300" alt="">
+            <a href="javascript:void(0);" class="d-block mb-4 ">
+                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300">
             </a>
         </div>
         <div class="col-lg-3 col-md-4 col-6">
-            <a href="/photo/?user=9545954562251&id=564584545151548" class="d-block mb-4 ">
-                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/8mUEy0ABdNE/400x300" alt="">
+            <a href="javascript:void(0);" class="d-block mb-4 ">
+                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300">
             </a>
         </div>
         <div class="col-lg-3 col-md-4 col-6">
-            <a href="/photo/?user=9545954562251&id=564584545151548" class="d-block mb-4 ">
-                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/G9Rfc1qccH4/400x300" alt="">
+            <a href="javascript:void(0);" class="d-block mb-4 ">
+                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300">
             </a>
         </div>
         <div class="col-lg-3 col-md-4 col-6">
-            <a href="/photo/?user=9545954562251&id=564584545151548" class="d-block mb-4 ">
-                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/aJeH0KcFkuc/400x300" alt="">
+            <a href="javascript:void(0);" class="d-block mb-4 ">
+                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300">
             </a>
         </div>
         <div class="col-lg-3 col-md-4 col-6">
-            <a href="/photo/?user=9545954562251&id=564584545151548" class="d-block mb-4 ">
-                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/p2TQ-3Bh3Oo/400x300" alt="">
+            <a href="javascript:void(0);" class="d-block mb-4 ">
+                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300">
             </a>
+        </div>
+    </div>
+  
+</div>
+<div class="container">
+    
+    <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Fotógrafos recentes <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary">Ver mais →</a></div></h1>
+  
+    <hr class="mt-2 mb-5">
+  
+    <div class="row text-center text-lg-left">
+        <!-- User 1 -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-0 shadow">
+            <a href="/profile/?user=johnendz"><img src="http://placehold.it/500x350" class="card-img-top"></a>
+            <div class="card-body text-center">
+                <h5 class="card-title mb-0">User</h5>
+                <div class="card-text text-black-50">Fotógrafo</div>
+            </div>
+            </div>
+        </div>
+        <!-- User 2 -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-0 shadow">
+            <a href="/profile/?user=johnendz"><img src="http://placehold.it/500x350" class="card-img-top"></a>
+            <div class="card-body text-center">
+                <h5 class="card-title mb-0">User</h5>
+                <div class="card-text text-black-50">Fotógrafo</div>
+            </div>
+            </div>
+        </div>
+        <!-- User 3 -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-0 shadow">
+            <a href="/profile/?user=johnendz"><img src="http://placehold.it/500x350" class="card-img-top"></a>
+            <div class="card-body text-center">
+                <h5 class="card-title mb-0">User</h5>
+                <div class="card-text text-black-50">Fotógrafo</div>
+            </div>
+            </div>
+        </div>
+        <!-- User 4 -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-0 shadow">
+            <a href="/profile/?user=johnendz"><img src="http://placehold.it/500x350" class="card-img-top"></a>
+            <div class="card-body text-center">
+                <h5 class="card-title mb-0">User</h5>
+                <div class="card-text text-black-50">Fotógrafo</div>
+            </div>
+            </div>
+        </div>
         </div>
     </div>
   
@@ -225,80 +230,5 @@
         <small>&copy; Copyright by Johendz | Fire Photos é um <a target="_blank" href="https://github.com/johnendz/Firebase-Photography-Example-master" style="color: rgba(255,255,255,.5)!important;">Projeto de Código Aberto</a></small>
     </div>
 </footer>
-<script>
-$( document ).ready(function() {
-    $('#createpassword').keyup(function(e) {
-                var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
-                var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
-                var enoughRegex = new RegExp("(?=.{6,}).*", "g");
-                if (false == enoughRegex.test($(this).val())) {
-                    $("#createpassword").addClass("is-invalid");
-                    $("#createpassword").removeClass("is-valid");
-                } else if (strongRegex.test($(this).val())) {
-                    $("#createpassword").addClass("is-valid");
-                    $("#createpassword").removeClass("is-invalid");
-                } else if (mediumRegex.test($(this).val())) {
-                    $("#createpassword").addClass("is-invalid");
-                    $("#createpassword").removeClass("is-valid");
-                } else {
-                    $("#createpassword").addClass("is-invalid");
-                    $("#createpassword").removeClass("is-valid");
-                }
-                return true;
-            });
-            $("#createemail").keyup(function() {
-                var email = $("#createemail").val();
-                var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-                if (!filter.test(email)) {
-                    $("#createemail").addClass("is-invalid");
-                    $("#createemail").removeClass("is-valid");
-                } else {
-                    $("#createemail").addClass("is-valid");
-                    $("#createemail").removeClass("is-invalid");
-                }
-            });
-});
-</script>
-<div class="modal" id="register" tabindex="-1" role="dialog" aria-hidden="true" style="margin-left: 31%;margin-top: 10%;">
-    <div class="card card-signin flex-row my-5" style="width: 35%;">
-        <div class="card-body">
-          <h5 class="card-title text-center" style="color:white;">Criar uma Conta</h5>
-          <div class="form-signin">
-            <div class="form-label-group">
-              <input type="text" id="usergithub" class="form-control" placeholder="GitHub Username" required autofocus>
-            </div>
-
-            <div class="form-label-group">
-              <input type="email" id="createemail" class="form-control" placeholder="Endereço de E-mail" required>
-            </div>
-
-            <div class="form-label-group">
-              <input type="password" id="createpassword" class="form-control" placeholder="Senha de Acesso" required>
-            </div>
-
-            <button class="btn btn-lg btn-github btn-block text-uppercase"><i class="fab fa-github"></i> Cadastrar com GitHub User</button>
-        </div>
-        </div>
-      </div>
-</div>
-<div class="modal" id="login" tabindex="-1" role="dialog" aria-hidden="true" style="margin-left: 31%;margin-top: 10%;">
-    <div class="card card-signin flex-row my-5" style="width: 35%;">
-        <div class="card-body">
-          <h5 class="card-title text-center" style="color:white;">Acessar uma Conta</h5>
-          <div class="form-signin">
-            <div class="form-label-group">
-              <input type="email" id="email" class="form-control" placeholder="Endereço de E-mail" required>
-            </div>
-
-            <div class="form-label-group">
-              <input type="password" id="password" class="form-control" placeholder="Senha de Acesso" required>
-            </div>
-
-            <button class="btn btn-lg btn-github btn-block text-uppercase"><i class="fab fa-github"></i> Conectar com GitHub User</button>
-            <a class="d-block text-center mt-2 small" href="javascript:void(0);" data-toggle="modal" data-target="#register" style="color:white;" onclick="$('#login').modal('hide');">Criar uma Conta</a>
-        </div>
-        </div>
-      </div>
-</div>
 </body>
 </html>
