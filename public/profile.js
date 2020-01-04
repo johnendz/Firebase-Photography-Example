@@ -12,33 +12,42 @@ $( document ).ready(function() {
     if(user == null){
         window.location.href = "/";
     }else{
-        fetch(`https://api.github.com/users/${user}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data.login)
-                $("#username").html(data.login + " <small>(" + data.name + ")</small>");
-                $("#userphoto").attr("src", data.avatar_url);
-                let bio = data.bio;
-                let company = data.company;
-                let location = data.location;
-                let blog = data.blog;
-                let email = data.email;
-                if(bio != null){
-                    $("#bio").text(data.bio);
-                }
-                if(company != null){
-                    $("#company").text(data.company);
-                }
-                if(location != null){
-                    $("#location").text(data.location);
-                }
-                if(blog != null){
-                    $("#blog").html("<a href='" + data.blog + "'>Meu Site</a>");
-                }
-                if(email != null){
-                    $("#email").html("<a href='mailto:" + data.email + "'>Enviar Email</a>");
-                }                
-            })
-            .catch(error => window.location.href = "/")
+        db.collection("users").doc(user).get().then(function(doc) {
+            if (doc.exists) {
+                let useruid = doc.data().username;
+                fetch(`https://api.github.com/users/${useruid}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data.login)
+                        $("#username").html(data.login + " <small>(" + data.name + ")</small>");
+                        $("#userphoto").attr("src", data.avatar_url);
+                        let bio = data.bio;
+                        let company = data.company;
+                        let location = data.location;
+                        let blog = data.blog;
+                        let email = data.email;
+                        if(bio != null){
+                            $("#bio").text(data.bio);
+                        }
+                        if(company != null){
+                            $("#company").text(data.company);
+                        }
+                        if(location != null){
+                            $("#location").text(data.location);
+                        }
+                        if(blog != null){
+                            $("#blog").html("<a href='" + data.blog + "'>Meu Site</a>");
+                        }
+                        if(email != null){
+                            $("#email").html("<a href='mailto:" + data.email + "'>Enviar Email</a>");
+                        }                
+                    })
+                    .catch(error => window.location.href = "/")
+            } else {
+                window.location.href = "/";
+            }
+        }).catch(function(error) {
+            console.log("Error getting document:", error);
+        });
     }
 });

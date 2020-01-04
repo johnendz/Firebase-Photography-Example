@@ -4,6 +4,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         $("#user-menu-on").show();
         $("#user-menu-off").hide();
         $("#user-menu-dropdown").text(user.displayName);
+        $("#myprofile").attr("href", "/profile/?user=" + user.uid);
         console.log(user);
     } else {
         console.log("No user is signed in.");
@@ -19,6 +20,7 @@ $( document ).ready(function() {
         firebase.auth().signInWithPopup(provider).then(function(result) {
             var token = result.credential.accessToken;
             var user = result.user;
+            console.log(result.user);
         }).catch(function(error) {
             var errorCode = error.code;
             var errorMessage = error.message;
