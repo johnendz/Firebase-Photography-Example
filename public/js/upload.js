@@ -45,7 +45,7 @@ $(document).ready(function() {
 		$("#add").text("Comprimindo...");
 	}//compremir a fotografia
 	function upload(docid, compress, size) {
-        var uploadTask = storage.ref().child('/photos/' + docid + '.jpg').putString(compress, 'data_url');
+        var uploadTask = storage.ref().child('/user/' + user.uid + '/' + docid + '.jpg').putString(compress, 'data_url');
         uploadTask.on('state_changed', function(snapshot){
             var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;//fazer uma conta e retornar a porcentagem ex: 100.545415416125
 		    var textprogress = progress.toFixed(0);//selecionar somente os primeiros numeros ex: 100
