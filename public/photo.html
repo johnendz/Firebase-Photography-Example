@@ -1,7 +1,13 @@
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Fire Photos</title>
+    <title>Fire Photos - Um lugar para mostrar seu talento</title>
+    <meta name="description" content="Um projeto para publicar trabalhos fotográficos que foram feitos por você.">
+    <meta name="keywords" content="Firebase-Photography-Example-master, Firebase, Photography, example, johnendz">
+    <meta name="robots" content="">
+    <meta name="revisit-after" content="1 day">
+    <meta name="language" content="Portuguese">
+    <meta name="generator" content="N/A">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -17,42 +23,42 @@
     <script src="/js/photo.js"></script><!--funcoes da pagina photos-->
 </head>
 <body><!--a imagem vai ser carregada aqui com css background-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="/">Fire Photos</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item" id="user-menu-off" style="display:none;">
-                    <button id="conect" class="btn btn-github"><i class="fab fa-github"></i> <btnlogin>Conectar com GitHub</btnlogin></button><!--essa funcao esta no auth.js-->
-                </li>
-                <li class="nav-item" id="user-menu-on" style="display:none;">
-                    <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="user-menu-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-                        <div class="dropdown-menu" aria-labelledby="user-menu-dropdown">
-                            <a class="dropdown-item" href="/upload">Enviar Fotógrafia</a>
-                            <a class="dropdown-item" id="myprofile">Meu Perfil</a><!--essa informacao vem do auth.js-->
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" onclick="firebase.auth().signOut().then(function() {});">Deslogar</a><!--para deslogar usuario do site-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">Fire Photos</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" id="user-menu-off" style="display:none;">
+                        <button id="conect" class="btn btn-github"><i class="fab fa-github"></i> <btnlogin>Conectar com GitHub</btnlogin></button><!--essa funcao esta no auth.js-->
+                    </li>
+                    <li class="nav-item" id="user-menu-on" style="display:none;">
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="user-menu-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                            <div class="dropdown-menu" aria-labelledby="user-menu-dropdown">
+                                <a class="dropdown-item" href="/upload">Enviar Fotógrafia</a>
+                                <a class="dropdown-item" id="myprofile">Meu Perfil</a><!--essa informacao vem do auth.js-->
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" onclick="firebase.auth().signOut().then(function() {});">Deslogar</a><!--para deslogar usuario do site-->
+                            </div>
                         </div>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="loader"><!--div do carregamento da pagina-->
+            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
     </div>
-</nav>
-<div class="container">
-    <div id="loader"><!--div do carregamento da pagina-->
-        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-    </div>
-</div>
-<footer class="py-4 bg-dark text-white-50 fixed-bottom">
-    <div class="container text-center">
-        <small>&copy; Copyright by Johnendz | Fire Photos é um <a target="_blank" href="https://github.com/johnendz/Firebase-Photography-Example-master" style="color: rgba(255,255,255,.5)!important;">Projeto de Código Aberto</a></small>
-    </div>
-</footer>
+    <footer class="py-4 bg-dark text-white-50 fixed-bottom">
+        <div class="container text-center">
+            <small>&copy; Copyright by Johnendz | Fire Photos é um <a target="_blank" href="https://github.com/johnendz/Firebase-Photography-Example-master" style="color: rgba(255,255,255,.5)!important;">Projeto de Código Aberto</a></small>
+        </div>
+    </footer>
 </body>
 </html>

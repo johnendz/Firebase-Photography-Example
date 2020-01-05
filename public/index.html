@@ -1,7 +1,13 @@
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Fire Photos</title>
+    <title>Fire Photos - Um lugar para mostrar seu talento</title>
+    <meta name="description" content="Um projeto para publicar trabalhos fotográficos que foram feitos por você.">
+    <meta name="keywords" content="Firebase-Photography-Example-master, Firebase, Photography, example, johnendz">
+    <meta name="robots" content="">
+    <meta name="revisit-after" content="1 day">
+    <meta name="language" content="Portuguese">
+    <meta name="generator" content="N/A">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -16,131 +22,131 @@
     <script src="/auth.js"></script><!--funcoes para gerenciamento de usuarios-->
     <script src="/js/index.js"></script><!--funcoes da pagina index-->
     <style type="text/css">
-        .carousel-item {
-            height: 65vh;
-            min-height: 350px;
-            background: no-repeat center center scroll;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
+    .carousel-item {
+        height: 65vh;
+        min-height: 350px;
+        background: no-repeat center center scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="/">Fire Photos</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">Fire Photos</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
   
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item" id="user-menu-off" style="display:none;">
-                    <button id="conect" class="btn btn-github"><i class="fab fa-github"></i> <btnlogin>Conectar com GitHub</btnlogin></button><!--essa funcao esta no auth.js-->
-                </li>
-                <li class="nav-item" id="user-menu-on" style="display:none;">
-                    <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="user-menu-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-                        <div class="dropdown-menu" aria-labelledby="user-menu-dropdown">
-                            <a class="dropdown-item" href="/upload">Enviar Fotógrafia</a>
-                            <a class="dropdown-item" id="myprofile">Meu Perfil</a><!--essa informacao vem do auth.js-->
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" onclick="firebase.auth().signOut().then(function() {});">Deslogar</a><!--para deslogar usuario do site-->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" id="user-menu-off" style="display:none;">
+                        <button id="conect" class="btn btn-github"><i class="fab fa-github"></i> <btnlogin>Conectar com GitHub</btnlogin></button><!--essa funcao esta no auth.js-->
+                    </li>
+                    <li class="nav-item" id="user-menu-on" style="display:none;">
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="user-menu-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                            <div class="dropdown-menu" aria-labelledby="user-menu-dropdown">
+                                <a class="dropdown-item" href="/upload">Enviar Fotógrafia</a>
+                                <a class="dropdown-item" id="myprofile">Meu Perfil</a><!--essa informacao vem do auth.js-->
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" onclick="firebase.auth().signOut().then(function() {});">Deslogar</a><!--para deslogar usuario do site-->
+                            </div>
                         </div>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </nav>
+    <div id="loader"><!--div do carregamento da pagina-->
+        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     </div>
-</nav>
-<div id="loader"><!--div do carregamento da pagina-->
-    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-</div>
-<header id="avs1" class="bg-primary py-5 mb-5" style="display:none;">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-12">
-          <h1 class="display-4 text-white mt-5 mb-2">Bem vindo ao Fire Photos</h1>
-          <p class="lead mb-5 text-white-50">Este projeto foi desenvolvido por johnendz, utilizando as principais tecnologias do firebase como exemplo, espero que tenha aprendido algo.</p>
+    <header id="avs1" class="bg-primary py-5 mb-5" style="display:none;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <h1 class="display-4 text-white mt-5 mb-2">Bem vindo ao Fire Photos</h1>
+                    <p class="lead mb-5 text-white-50">Este projeto foi desenvolvido por johnendz, utilizando as principais tecnologias do firebase como exemplo, espero que tenha aprendido algo.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-</header>
-<div id="avs2" class="container" style="display:none;height: 50vh;">
+    </header>
+    <div id="avs2" class="container" style="display:none;height: 50vh;">
 
-    <div class="row">
-      <div class="col-md-8 mb-5">
-        <h2>O que seria Fire Photos?</h2>
-        <hr>
-        <p>Fire Photos é um projeto de exemplo usando tecnologias disponivel pelo Firebase, como Authentication, Firestore, Storage, para coisas rotineiras em um site, tendo codigos para todos exemplos basico para funcionar!</p>
-        <p>O projeto é gratuito posso baixar é usar para mim mesmo? sim, ele é open source e poderá usar em qualquer lugar (desde que não altere o footer), o firebase é uma otima ferramentas para você começar hoje.</p>
-        <a class="btn btn-primary btn-lg" href="https://github.com/johnendz/Firebase-Photography-Example-master">Ver Código Fonte »</a>
-      </div>
-      <div class="col-md-4 mb-5">
-        <h2>Contatos</h2>
-        <hr>
-        <address>
-          <strong>Alexander F.</strong>
-          <br>"Falar é fácil. Mostre-me
-          <br> o código."
-          <br>
-        </address>
-        <address>
-          <abbr><img src="https://img.icons8.com/ios/20/000000/linkedin.png"></abbr>
-          <a href="https://www.linkedin.com/in/johnendz">linkedin.com/in/johnendz</a>
-          <br>
-          <abbr><img src="https://img.icons8.com/dotty/20/000000/filled-sent.png"></abbr>
-          <a href="mailto:johnendz@icloud.com">johnendz@icloud.com</a>
-        </address>
-      </div>
-    </div>
-  </div>
-<header id="headerphotos" style="display:none;">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <!--exibir header com as 3 fotos mais visualizadas-->
+        <div class="row">
+            <div class="col-md-8 mb-5">
+                <h2>O que seria Fire Photos?</h2>
+                <hr>
+                <p>Fire Photos é um projeto de exemplo usando tecnologias disponivel pelo Firebase, como Authentication, Firestore, Storage, para coisas rotineiras em um site, tendo codigos para todos exemplos basico para funcionar!</p>
+                <p>O projeto é gratuito posso baixar é usar para mim mesmo? sim, ele é open source e poderá usar em qualquer lugar (desde que não altere o footer), o firebase é uma otima ferramentas para você começar hoje.</p>
+                <a class="btn btn-primary btn-lg" href="https://github.com/johnendz/Firebase-Photography-Example-master">Ver Código Fonte »</a>
+            </div>
+            <div class="col-md-4 mb-5">
+                <h2>Contatos</h2>
+                <hr>
+                <address>
+                    <strong>Alexander F.</strong>
+                    <br>"Falar é fácil. Mostre-me
+                    <br> o código."
+                    <br>
+                </address>
+                <address>
+                    <abbr><img src="https://img.icons8.com/ios/20/000000/linkedin.png"></abbr>
+                    <a href="https://www.linkedin.com/in/johnendz">linkedin.com/in/johnendz</a>
+                    <br>
+                    <abbr><img src="https://img.icons8.com/dotty/20/000000/filled-sent.png"></abbr>
+                    <a href="mailto:johnendz@icloud.com">johnendz@icloud.com</a>
+                </address>
+            </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
     </div>
-</header>
-<div class="container" id="containerphotos" style="display:none;">
+    <header id="headerphotos" style="display:none;">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <!--exibir header com as 3 fotos mais visualizadas-->
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </header>
+    <div class="container" id="containerphotos" style="display:none;">
 
-    <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Postagens recentes <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary">Ver mais →</a></div></h1>
+        <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Postagens recentes <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary">Ver mais →</a></div></h1>
   
-    <hr class="mt-2 mb-5">
+        <hr class="mt-2 mb-5">
   
-    <div class="row text-center text-lg-left" id="listphotos">
-        <!--mostrar todas as fotos recentes-->
+        <div class="row text-center text-lg-left" id="listphotos">
+            <!--mostrar todas as fotos recentes-->
+        </div>
     </div>
-</div>
-<div class="container" id="usersphotos" style="display:none;">
+    <div class="container" id="usersphotos" style="display:none;">
     
-    <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Fotógrafos recentes <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary">Ver mais →</a></div></h1>
+        <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Fotógrafos recentes <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary">Ver mais →</a></div></h1>
   
-    <hr class="mt-2 mb-5">
+        <hr class="mt-2 mb-5">
   
-    <div class="row text-center text-lg-left" id="listusers">
-        <!--mostrar todos novos fotografos-->
-    </div>  
-</div>
-<footer class="py-4 bg-dark text-white-50">
-    <div class="container text-center">
-        <small>&copy; Copyright by Johnendz | Fire Photos é um <a target="_blank" href="https://github.com/johnendz/Firebase-Photography-Example-master" style="color: rgba(255,255,255,.5)!important;">Projeto de Código Aberto</a></small>
+        <div class="row text-center text-lg-left" id="listusers">
+            <!--mostrar todos novos fotografos-->
+        </div>  
     </div>
-</footer>
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>&copy; Copyright by Johnendz | Fire Photos é um <a target="_blank" href="https://github.com/johnendz/Firebase-Photography-Example-master" style="color: rgba(255,255,255,.5)!important;">Projeto de Código Aberto</a></small>
+        </div>
+    </footer>
 </body>
 </html>

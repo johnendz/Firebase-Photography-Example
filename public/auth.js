@@ -21,7 +21,7 @@ $( document ).ready(function() {
         firebase.auth().signInWithPopup(provider).then(function(result) {
             let token = result.credential.accessToken;//GitHub OAuth Access Token
             let user = result.user;
-            // Call the user info API using the fetch browser library
+            //usando o token para puxar informacoes do usuario do github
             fetch('https:////api.github.com/user', {
                 headers: {
                     Authorization: 'token ' + token
@@ -51,10 +51,11 @@ $( document ).ready(function() {
                 });
             });            
         }).catch(function(error) {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            var email = error.email;
-            var credential = error.credential;
+            //var errorCode = error.code;
+            //var errorMessage = error.message;
+            //var email = error.email;
+            //var credential = error.credential;
+            //apenas se voce quiser separar os erros
             console.log(error);
             $("#conect").addClass("btn-danger");$("#conect").removeClass("btn-primary");
 			$("btnlogin").text(errorMessage);

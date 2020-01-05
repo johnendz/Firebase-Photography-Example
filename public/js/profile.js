@@ -15,11 +15,16 @@ $( document ).ready(function() {
         db.collection("users").doc(user).get().then(function(doc) {
             if (doc.exists) {// vereficar se o usuario existe no banco de dados
                 let useruid = doc.data().username;
+                if(doc.data().name == null){
+                    var name = "desconhecido";
+                }else{
+                    var name = doc.data().name;
+                }
                 //buscar da api do github informações do ususario
                 fetch(`https://api.github.com/users/${useruid}`)
                     .then(response => response.json())
                     .then(data => {
-                        $("#username").html(data.login + " <small>(" + data.name + ")</small>");
+                        $("#username").html(data.login + " <small>(" + name + ")</small>");
                         $("#userphoto").attr("src", data.avatar_url);
                         let bio = data.bio;
                         let company = data.company;
