@@ -35,7 +35,7 @@ $(document).ready(function() {
 			ctx.canvas.width = image.width;
 			ctx.canvas.height = image.height;
 			ctx.drawImage(image, 0, 0,image.width,image.height);
-			var compress = canvas.toDataURL('image/jpeg', 0.8);
+			var compress = canvas.toDataURL('image/jpeg', 0.6);
 			var imgfile = dataURLtoBlob(compress);
 			var size = imgfile.size;
 			upload(docid, compress, size);
@@ -48,7 +48,7 @@ $(document).ready(function() {
         uploadTask.on('state_changed', function(snapshot){
             var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 		    var textprogress = progress.toFixed(0);
-		    $("#add").text("Enviando (%" + textprogress + ")...");
+		    $("#add").text("Enviando (" + textprogress + "%)...");
         }, function(error) {
             $("#add").text("Ocorreu um Erro");
 			console.log("Error getting documents: ", error);

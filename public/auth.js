@@ -8,6 +8,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log(user);//mostrar informacoes da sessao
     } else {
         console.log("Usuario deslogado.");
+        $("#conect").addClass("btn-primary");$("#conect").removeClass("btn-danger");$("btnlogin").text("Conectar com GitHub");$("#conect").prop('disabled', false);
         $("#user-menu-off").show();//mostrar menu de usuario deslogado
         $("#user-menu-on").hide();//ocultar menu de usuario logado
     }
@@ -18,7 +19,37 @@ $( document ).ready(function() {
         $("btnlogin").text("Acessando...");
         $("#conect").prop('disabled', true);
         firebase.auth().signInWithPopup(provider).then(function(result) {
-            var token = result.credential.accessToken;//GitHub OAuth Access Token
+            let token = result.credential.accessToken;//GitHub OAuth Access Token
+            let user = result.user;
+            // Call the user info API using the fetch browser library
+            fetch('https:////api.github.com/user', {
+                headers: {
+                    Authorization: 'token ' + token
+                }
+            })
+            .then(res => res.json())
+                .then(res => {
+                db.collection("users").doc(user.uid).get().then(function(doc) {
+                    if (doc.exists) {
+                        db.collection("users").doc(user.uid).update({
+                            logindate: Date.now(),
+                            name: res.name,
+                            username: res.login
+                        });//em caso do usuario trocar de username, atualiza toda vez que fizer login
+                    } else {
+                        db.collection("users").doc(user.uid).set({
+                            id: user.uid,
+                            src: user.photoURL,
+                            registration: Date.now(),
+                            logindate: Date.now(),
+                            name: res.name,
+                            username: res.login
+                        });//defenir um a primeira view já que ela nao existe
+                    }
+                }).catch(function(error) {
+                    console.log("Error getting document:", error);
+                });
+            });            
         }).catch(function(error) {
             var errorCode = error.code;
             var errorMessage = error.message;
@@ -28,7 +59,7 @@ $( document ).ready(function() {
             $("#conect").addClass("btn-danger");$("#conect").removeClass("btn-primary");
 			$("btnlogin").text(errorMessage);
 			setTimeout(function(){
-				$("#conect").addClass("btn-primary");$("#conect").removeClass("btn-danger");$("#conect").text("Conectar com GitHub");$("#conect").prop('disabled', false);
+				$("#conect").addClass("btn-primary");$("#conect").removeClass("btn-danger");$("btnlogin").text("Conectar com GitHub");$("#conect").prop('disabled', false);
 			}, 3000);
         });
     });
