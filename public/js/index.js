@@ -7,8 +7,9 @@ $( document ).ready(function() {
             postcont++;
             if(postcont == "1"){
                 $(".carousel-inner").html("<div class='carousel-item active' style='background-image: url(" + doc.data().src + ")'></div>");//doc.data().src onde ".src" seria o nome do campo e "doc.data()" é usado para ver os dados retornado
+            }else{
+                $(".carousel-inner").append("<div class='carousel-item' style='background-image: url(" + doc.data().src + ")'></div>");//doc.data().src onde ".src" seria o nome do campo e "doc.data()" é usado para ver os dados retornado
             }
-            $(".carousel-inner").append("<div class='carousel-item' style='background-image: url(" + doc.data().src + ")'></div>");//doc.data().src onde ".src" seria o nome do campo e "doc.data()" é usado para ver os dados retornado
         });
         if(postcont == "3"){
             $("#headerphotos").show();
