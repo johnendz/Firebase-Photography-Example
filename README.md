@@ -30,7 +30,7 @@
 <br>
 
 <p align="center">
-  <img alt="Frontend" width="165" src="https://github.com/johnendz/React-OmniStack-Example/raw/master/devradar.webp">
+  <img alt="Frontend" width="1024" src="https://i.imgur.com/ju8lW4b.png">
 </p>
 
 ## :rocket: Tecnologias
