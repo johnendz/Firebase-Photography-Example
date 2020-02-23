@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Firebase logo" src="https://firebase.google.com/images/brand-guidelines/logo-standard.png?hl=pt-br" width="250px" />
+    <img alt="Firebase logo" src="https://i.imgur.com/rEBClkG.png" width="250px" />
 </h1>
 
 <h4 align="center">
@@ -30,7 +30,7 @@
 <br>
 
 <p align="center">
-  <img alt="Frontend" width="1024" src="https://i.imgur.com/ju8lW4b.png">
+  <img alt="Frontend" width="1024" src="https://i.imgur.com/12SaKSk.png">
 </p>
 
 ## :rocket: Tecnologias
