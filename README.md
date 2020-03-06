@@ -24,7 +24,7 @@
 <p align="center">
   <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-como-contribuir">Como contribuir</a>&nbsp;&nbsp;&nbsp;
+  <a href="#-como-utilizar">Como utilizar</a>&nbsp;&nbsp;&nbsp;
 </p>
 
 <br>
@@ -46,11 +46,9 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 O Firebase Photography Example é um exemplo de projeto com Firebase para cadastramento de usuarios e disponibilizar fotografias online.
 
-## 🤔 Como contribuir
+## 🤔 Como utilizar
 
-- Faça um fork desse repositório;
-- Cria uma branch com a sua feature: `git checkout -b minha-feature`;
-- Faça commit das suas alterações: `git commit -m 'feat: Minha nova feature'`;
-- Faça push para a sua branch: `git push origin minha-feature`.
-
-Depois que o merge da sua pull request for feito, você pode deletar a sua branch.
+- Faça um clone desse repositório;
+- Adicione a configuração do Firebase: `public > config.js`;
+- No authentication do firebase: `habilite o método de login via github`;
+- Antes de fazer deploy com firebase tools: `certifique que já esteja configurado o Firestore e Storage`.
